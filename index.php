@@ -35,6 +35,7 @@
                     <div class="col-sm-3">
                         <img src="" alt="" class="img-fluid">
                         <h4 class="text-center"><?php echo $row['model'] ?></h4>
+                        <h6 class="text-center"><?php echo $row['preu'] ?></h6>
                         <a href="fitxa.php?id=<?php echo $row['id'] ?>"></a>
                     </div>
                 </div>
