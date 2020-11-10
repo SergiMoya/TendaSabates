@@ -43,7 +43,7 @@
                        
             ?>
 
-            <div class="col-sm-4"><?php echo $model . " " . $preu . "€ "."<br>"  ."<a href='fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?></div>
+            <div class="col-sm-4"><?php echo $model . " " . $preu . "€ "."<br>"  ."<a href='Fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?></div>
 
             <?php
                     }
