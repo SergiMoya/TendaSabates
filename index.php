@@ -42,7 +42,7 @@
                                
             ?>
 
-            <div class="col-sm-4">
+            <div class="col-sm-5">
             <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
                 <?php echo $model . " " . $preu . "€ "."<br>"  ."<a href='Fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?>
             
