@@ -23,7 +23,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hat Shop</title>
+    <title>Tenda de Sabates</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
@@ -43,7 +43,7 @@
                        
             ?>
 
-            <div class="col-sm-4"><?php echo $model . " " . $preu . "€ "  ."<a href='fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?></div>
+            <div class="col-sm-4"><?php echo $model . " " . $preu . "€ "."<br>"  ."<a href='fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?></div>
 
             <?php
                     }

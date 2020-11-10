@@ -13,7 +13,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, model, preu FROM Producte";
+$sql = "SELECT id, model, preu FROM Producte where id = '".$codi."'";
 $result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
