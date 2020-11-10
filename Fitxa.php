@@ -36,7 +36,9 @@ if ($result->num_rows > 0) {
         $product_html .= '<div class="clear_both"></div></div>';
         }
   }
-
+ else {
+  echo "0 results";
+}
 $conn->close();
 ?>
 </body>
