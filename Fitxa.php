@@ -19,7 +19,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $model = $row['model'];
 $preu = $row['preu'];
-
+$descripcio = $row['descripcio'];
 $conn->close();
 ?>
 
@@ -37,11 +37,12 @@ $conn->close();
 <div class="container">
     <a href="index.php">Tornar</a>
     <div class="row">
-        <div class="col-sm-6"><img src="imatges/<?php echo $codi; ?>" alt="" class="img-fluid"></div>
+        <div class="col-sm-6"><img src="public/imatges/<?php echo $codi; ?>.jpg" alt="" class="img-fluid"></div>
         <div class="col-sm-6">
             <div class="row">
                 <div class="col-sm-11"><h2><?php echo $model; ?></h2></div>
-                <div class="col-sm-11"><h4><?php echo $preu; ?></h4></div>
+                <div class="col-sm-11"><h4><?php echo $preu; ?><?php echo '€';?></h4></div>
+                <div class="col-sm-11"><h8><?php echo $descripcio; ?></h8></div>
                 <div class="col-sm-11"><button class="btn btn-primary">Afegir</button></div>
             </div>
         </div>

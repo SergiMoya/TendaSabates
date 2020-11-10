@@ -1,5 +1,5 @@
 <?php
-
+$codi = $_GET['id'];
         $servername = "0.0.0.0";
         $username = "perez";
         $password = "moya1234";
@@ -39,11 +39,10 @@
                         $id = $row["id"];
                         $model = $row["model"];
                         $preu = $row["preu"];
-                        
-                       
+                               
             ?>
 
-            <div class="col-sm-4"><?php echo $model . " " . $preu . "€ "."<br>"  ."<a href='Fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?></div>
+            <div class="col-sm-4"><?php echo '<img src="public/imatges/<?php echo $codi; ?>.jpg" alt="" class="img-fluid">'.$model . " " . $preu . "€ "."<br>"  ."<a href='Fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?></div>
 
             <?php
                     }
