@@ -17,6 +17,7 @@ $sql = "SELECT * FROM Producte where id = '".$codi."'";
 $result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
+$id = $row['id'];
 $model = $row['model'];
 $preu = $row['preu'];
 $descripcio = $row['descripcio'];
@@ -43,7 +44,7 @@ $conn->close();
                 <div class="col-sm-11"><h2><?php echo $model; ?></h2></div>
                 <div class="col-sm-11"><h4><?php echo $preu; ?><?php echo '€';?></h4></div>
                 <div class="col-sm-11"><h8><?php echo $descripcio; ?></h8></div>
-                <div class="col-sm-11"><button class="btn btn-primary" name="btnAccion" value="agregar" type="submit">Afegir</button></div>
+                <div class="col-sm-11"><?php echo "<a href='agregar.php?id=$id'>Añadir al carro</a> " ?></div>
             </div>
         </div>
     </div>
