@@ -17,10 +17,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM Producte";
 $respuesta = $conn->query($sql);
-$row = $respuesta->fetch_assoc();
-$id = $row['id'];
-$model = $row['model'];
-$preu = $row['preu'];
+
 $conn->close();
 ?>
 
@@ -52,9 +49,9 @@ $conn->close();
         ?>
                 
                     <tr>
-                        <th scope="row"><?php echo $id; ?></th>
-                        <td><?php echo $model; ?></td>
-                        <td><?php echo $preu; ?></td>
+                        <th scope="row"><?php echo $fila['id']; ?></th>
+                        <td><?php echo $fila['model']; ?></td>
+                        <td><?php echo $fila['preu']; ?></td>
                     </tr>
             <?php
             }
