@@ -4,7 +4,7 @@
 
 session_start();
 
-$codi = $_GET['id'];
+
 $servername = "0.0.0.0";
 $username = "perez";
 $password = "moya1234";
@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Producte where id = '" . $codi . "'";
+$sql = "SELECT * FROM Producte";
 $respuesta = $conn->query($sql);
 
 $conn->close();
