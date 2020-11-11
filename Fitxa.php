@@ -37,7 +37,7 @@ $conn->close();
 <body style="background-color: #F5F5F5;">
 <div class="container">
     <a href="index.php">Tornar</a>
-    <a href="carrito.php"></a>
+    <a href="carrito.php">Carrito</a>
     <div class="row">
         <div class="col-sm-6"><img src="public/imatges/<?php echo $codi; ?>.jpg" alt="" class="img-fluid"></div>
         <div class="col-sm-6">
