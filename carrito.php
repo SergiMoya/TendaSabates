@@ -1,5 +1,3 @@
-
-
 <?php
 
 session_start();
@@ -19,19 +17,52 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM Producte";
 $respuesta = $conn->query($sql);
-
+$row = $respuesta->fetch_assoc();
+$id = $row['id'];
+$model = $row['model'];
+$preu = $row['preu'];
 $conn->close();
-
-if(isset($_SESSION['carrito'])){
-    $arreglo = $_SESSION['carrito'];
-    echo "<table><th></th><th>ID</th><th>MODELO<th><th
-    PREU</th>";
-    foreach ($arreglo as $key => $fila){
-        echo "<td>" . $fila['id'] . "</td>";
-        echo "<td>" . $fila['model'] . "</td>";
-        echo "<td>" . $fila['preu'] . "</td>";
-
-    echo "</table>";
-    }
-}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">MODEL</th>
+                <th scope="col">PREU</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        if (isset($_SESSION['carrito'])) {
+            $arreglo = $_SESSION['carrito'];
+            foreach ($arreglo as $key => $fila) {
+
+        ?>
+                
+                    <tr>
+                        <th scope="row"><?php echo $id; ?></th>
+                        <td><?php echo $model; ?></td>
+                        <td><?php echo $preu; ?></td>
+                    </tr>
+            <?php
+            }
+        }
+            ?>
+                </tbody>
+
+    </table>
+</body>
+
+</html>
