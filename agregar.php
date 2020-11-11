@@ -39,6 +39,7 @@ if($respuesta){
     }
 }
 
+header("Refresh:0; url=index.php", true);
 
 ?>
 
