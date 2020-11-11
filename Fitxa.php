@@ -33,7 +33,7 @@ $conn->close();
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color: #F5F5F5;">
 <div class="container">
     <a href="index.php">Tornar</a>
     <div class="row">
@@ -43,7 +43,7 @@ $conn->close();
                 <div class="col-sm-11"><h2><?php echo $model; ?></h2></div>
                 <div class="col-sm-11"><h4><?php echo $preu; ?><?php echo '€';?></h4></div>
                 <div class="col-sm-11"><h8><?php echo $descripcio; ?></h8></div>
-                <div class="col-sm-11"><button class="btn btn-primary">Afegir</button></div>
+                <div class="col-sm-11"><button class="btn btn-primary" name="btnAccion" value="agregar" type="submit">Afegir</button></div>
             </div>
         </div>
     </div>
