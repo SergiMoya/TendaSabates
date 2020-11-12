@@ -38,8 +38,6 @@
 
     <div class="container">
     <form action="afegirBDD.php" method="POST"  NAME="form">
-ID:<br>
-      <input type="text"  name="id"/> <br/><br/>
 MODEL:<br>
 	  <input type="text"  name="model"/> <br/><br/>
 PREU:<br>	 

@@ -12,21 +12,24 @@
             die("Connection failed: " . $connect->connect_error);
         }
         //make query
-        $sql = "Select id, model, preu from Producte";
+        $sql = "Select model, preu from Producte";
         $result = $connect->query($sql);
         
 
         if ($connect) {
             echo "conexion exitosa. <br />";
-            $id= $_POST['id'];
+            
             $preu= $_POST['preu'];
             $model= $_POST['model'];
             $descripcio= $_POST['descripcio'];
     
-            $consulta="insert into Producte values ('$id','$model','$preu','$descripcio')";
+            $consulta="insert into Producte values ('$model','$preu','$descripcio')";
             
             $resultado=mysqli_query($connect,$consulta);
             
+
+            
+
             if ($resultado) {
                 echo "Producte insertat correctament <br />";
             }
