@@ -39,7 +39,7 @@ if($respuesta){
     }
 }
 
-header("Refresh:0; url=index.php", true);
+header("Refresh:0; url=carrito.php", true);
 
 ?>
 

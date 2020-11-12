@@ -36,8 +36,32 @@ $conn->close();
 </head>
 <body style="background-color: #F5F5F5;">
 <div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+            <div class="container">
+                <button class="navbar-toggler botores" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.php">Inici
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="carrito.php">Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link efecte" href="contacte.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     <a href="index.php">Tornar</a>
-    <a href="carrito.php">Carrito</a>
+    
     <div class="row">
         <div class="col-sm-6"><img src="public/imatges/<?php echo $codi; ?>.jpg" alt="" class="img-fluid"></div>
         <div class="col-sm-6">
