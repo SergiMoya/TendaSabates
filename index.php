@@ -31,8 +31,9 @@
     
 
     <div class="container">
+    <a href="carrito.php">Carrito</a>
         <div class="row">
-        <a href="carrito.php">Carrito</a>
+        
             <?php 
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
