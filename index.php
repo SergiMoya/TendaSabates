@@ -47,6 +47,9 @@
                     <li class="nav-item">
                         <a class="nav-link efecte" href="contacte.html">Contacto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link efecte" href="AfegirProductes.php">Afegir Producte</a>
+                    </li>
                 </ul>
             </div>
     
