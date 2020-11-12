@@ -14,7 +14,7 @@
         //make query
         $sql = "Select id, model, preu from Producte";
         $result = $connect->query($sql);
-        $connect->close();
+        
 
         if ($connect) {
             echo "conexion exitosa. <br />";
@@ -36,5 +36,5 @@
             
             
     }
-
+    $connect->close();
     ?>
