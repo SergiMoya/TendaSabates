@@ -21,7 +21,7 @@
             $id= $_POST['id'];
             $preu= $_POST['preu'];
             $model= $_POST['model'];
-            $Apellido2= $_POST['descripcio'];
+            $descripcio= $_POST['descripcio'];
     
             $consulta="insert into Producte values ('$id','$model','$preu','$descripcio')";
             
