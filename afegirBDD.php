@@ -8,20 +8,20 @@
         // Create connection
         $connect = new mysqli($servername, $username, $password, $dbname);
         // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+        if ($connect->connect_error) {
+            die("Connection failed: " . $connect->connect_error);
         }
         //make query
         $sql = "Select id, model, preu from Producte";
-        $result = $conn->query($sql);
-        $conn->close();
+        $result = $connect->query($sql);
+        $connect->close();
 
         if ($connect) {
             echo "conexion exitosa. <br />";
-            $id= $_POST ['id'];
-            $preu= $_POST ['preu'];
-            $model= $_POST ['model'];
-            $Apellido2= $_POST ['descripcio'];
+            $id= $_POST['id'];
+            $preu= $_POST['preu'];
+            $model= $_POST['model'];
+            $Apellido2= $_POST['descripcio'];
     
             $consulta="insert into Producte values ('$id','$model','$preu','$descripcio')";
             
