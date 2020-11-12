@@ -35,7 +35,7 @@ $conn->close();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body style="background-color: #F5F5F5;">
-<div class="container">
+<div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
             <div class="container">
                 <button class="navbar-toggler botores" type="button" data-toggle="collapse"
@@ -51,7 +51,7 @@ $conn->close();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="carrito.php">Carrito</a>
+                            <a class="nav-link efecte" href="carrito.php">Carrito</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link efecte" href="contacte.html">Contacto</a>
@@ -60,6 +60,7 @@ $conn->close();
                 </div>
             </div>
         </nav>
+        
     <a href="index.php">Tornar</a>
     
     <div class="row">
