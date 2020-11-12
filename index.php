@@ -54,7 +54,7 @@
     </div>
 
     <div class="container">
-    <a href="carrito.php">Carrito</a>
+    
         <div class="row">
         
             <?php 
