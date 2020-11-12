@@ -36,7 +36,7 @@ $conn->close();
 </head>
 <body style="background-color: #F5F5F5;">
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
             <div class="container">
                 <button class="navbar-toggler botores" type="button" data-toggle="collapse"
                     data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
