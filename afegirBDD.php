@@ -12,7 +12,7 @@
             die("Connection failed: " . $connect->connect_error);
         }
         //make query
-        $sql = "Select model, preu from Producte";
+        $sql = "Select model, preu, descripcio from Producte";
         $result = $connect->query($sql);
         
 

@@ -45,7 +45,7 @@
                         <a class="nav-link efecte" href="carrito.php">Carrito</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="contacte.html">Contacto</a>
+                        <a class="nav-link efecte" href="contacte.html">Contacte</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link efecte" href="AfegirProductes.php">Afegir Producte</a>
