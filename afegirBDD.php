@@ -23,7 +23,7 @@
             $model= $_POST['model'];
             $descripcio= $_POST['descripcio'];
     
-            $consulta="insert into Producte values ('$model','$preu','$descripcio')";
+            $consulta="insert into Producte (model, preu, descripcio) values ('$model','$preu','$descripcio')";
             
             $resultado=mysqli_query($connect,$consulta);
             
