@@ -25,35 +25,7 @@ $conn->close();
 ?>
 
 <?php
-$lang = "es";
-
-if (isset($_GET["lang"]) && $_GET["lang"] != "") {
-    if ($_GET["lang"] == "en" || $_GET["lang"] == "es") {
-        $lang = $_GET["lang"];
-    }
-}
-
-$frases = array(
-    "es" => array(
-        "inici" => "Inici",
-        "carrito" => "Carreto",
-        "contacte" => "Contacte",
-        "afegir" => "Afegir Productes",
-        "idioma" => "Idioma",
-        "info" => "Mes Informacio",
-        "carrito" => "Afegir al carro"
-    ),
-    "en" => array(
-        "inici" => "Home",
-        "carrito" => "Cart",
-        "contacte" => "Contact",
-        "afegir" => "Add Product",
-        "idioma" => "Language",
-        "info" => "More Information",
-        "carrito" => "Add cart"
-    )
-
-);
+include_once "TriarIdioma.php";
 ?>
 
 <!DOCTYPE html>
@@ -117,7 +89,7 @@ $frases = array(
                     <div class="col-sm-11">
                         <h8><?php echo $descripcio; ?></h8>
                     </div>
-                    <div class="col-sm-11"><?php echo "<a href='agregar.php?id=$id'>$frases[$lang]['carrito']</a> " ?></div>
+                    <div class="col-sm-11"> "<a href='agregar.php?id=<?php echo $id ?></a> </div>
                 </div>
             </div>
         </div>
