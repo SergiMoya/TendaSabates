@@ -89,7 +89,7 @@ include_once "TriarIdioma.php";
                     <div class="col-sm-11">
                         <h8><?php echo $descripcio; ?></h8>
                     </div>
-                    <div class="col-sm-11"> "<a href='agregar.php?id=<?php echo $id ?></a> </div>
+                    <div class="col-sm-11"> "<a href='agregar.php?id=<?php echo $id ?>><?php echo $frases[$lang]["afegir"]; ?></a> </div>
                 </div>
             </div>
         </div>

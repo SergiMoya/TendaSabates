@@ -14,7 +14,8 @@ $frases = array(
         "contacte" => "Contacte",
         "afegir" => "Afegir Productes",
         "idioma" => "Idioma",
-        "info" => "Mes Informacio"
+        "info" => "Mes Informacio",
+        "afegir" => "Afegir"
     ),
     "en" => array(
         "inici" => "Home",
@@ -22,7 +23,8 @@ $frases = array(
         "contacte" => "Contact",
         "afegir" => "Add Product",
         "idioma" => "Language",
-        "info" => "More Information"
+        "info" => "More Information",
+        "afegir" => "Add"
     )
 
 );
