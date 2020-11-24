@@ -18,31 +18,7 @@ $conn->close();
 
 ?>
 <?php
-$lang = "es";
-
-if (isset($_GET["lang"]) && $_GET["lang"] != "") {
-    if ($_GET["lang"] == "en" || $_GET["lang"] == "es") {
-        $lang = $_GET["lang"];
-    }
-}
-
-$frases = array(
-    "es" => array(
-        "inici" => "Inici",
-        "carrito" => "Carreto",
-        "contacte" => "Contacte",
-        "afegir" => "Afegir Productes",
-        "idioma" => "Idioma"
-    ),
-    "en" => array(
-        "inici" => "Home",
-        "carrito" => "Cart",
-        "contacte" => "Contact",
-        "afegir" => "Add Product",
-        "idioma" => "Language"
-    )
-
-);
+include_once "TriarIdioma.php";
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +60,7 @@ $frases = array(
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $frases[$lang]["idioma"]; ?></a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="index.php?lang=es">Español</a>
-                            <a class="dropdown-item" href="index.php?lang=en">Ingles</a>
+                            <a class="dropdown-item" href="index.php?lang=en">Angles</a>
                         </div>
                     </li>
                 </ul>
@@ -108,7 +84,7 @@ $frases = array(
 
                     <div class="col-sm-4">
                         <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
-                        <?php echo $model . " " . $preu . "€ " . "<br>"  . "<a href='Fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?>
+                        <?php echo $model . " " . $preu . "€ " . "<br>"  . "<a href='Fitxa.php?id=$id'>$frases[$lang]['info']</a>" . "<br><br>"; ?>
 
                     </div>
 
