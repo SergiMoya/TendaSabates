@@ -89,7 +89,7 @@ include_once "TriarIdioma.php"
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $model?></h5>
                                 <p class="card-text"><?php echo $model?></p>
-                                <a href="href='Fitxa.php?id=<?php echo $id; ?>'" class="btn btn-primary"><?php echo $frases[$lang]["info"]; ?></a>
+                                <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-primary"><?php echo $frases[$lang]["info"]; ?></a>
                             </div>
                         </div>
                         
