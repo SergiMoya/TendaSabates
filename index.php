@@ -18,33 +18,7 @@ $conn->close();
 
 ?>
 <?php
-$lang = "es";
-
-if (isset($_GET["lang"]) && $_GET["lang"] != "") {
-    if ($_GET["lang"] == "en" || $_GET["lang"] == "es") {
-        $lang = $_GET["lang"];
-    }
-}
-
-$frases = array(
-    "es" => array(
-        "inici" => "Inici",
-        "carrito" => "Carreto",
-        "contacte" => "Contacte",
-        "afegir" => "Afegir Productes",
-        "idioma" => "Idioma",
-        "info" => "Mes Informacio"
-    ),
-    "en" => array(
-        "inici" => "Home",
-        "carrito" => "Cart",
-        "contacte" => "Contact",
-        "afegir" => "Add Product",
-        "idioma" => "Language",
-        "info" => "More Information"
-    )
-
-);
+include_once "TriarIdioma.php"
 ?>
 
 <!DOCTYPE html>
@@ -109,8 +83,16 @@ $frases = array(
             ?>
 
                     <div class="col-sm-4">
+
                         <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
-                        <?php echo $model . " " . $preu . "€ " . "<br>"  . "<a href='Fitxa.php?id=$id'>$frases[$lang]['info']</a>" . "<br><br>"; ?>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $model?></h5>
+                                <p class="card-text"><?php echo $model?></p>
+                                <a href="href='Fitxa.php?id=<?php $id ?>'" class="btn btn-primary"><?php echo $frases[$lang]["idioma"]; ?></a>
+                            </div>
+                        </div>
+                        
 
                     </div>
 
