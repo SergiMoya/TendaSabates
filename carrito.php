@@ -41,19 +41,30 @@ $conn->close();
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Inici
+                        <a class="nav-link" href="index.php"><?php echo $frases[$lang]["inici"]; ?>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link efecte" href="carrito.php">Carrito</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $frases[$lang]["idioma"]; ?></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="index.php?lang=es">Español</a>
+                            <a class="dropdown-item" href="index.php?lang=en">Angles</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="contacte.html">Contacto</a>
+                        <a class="nav-link efecte" href="carrito.php"><?php echo $frases[$lang]["carrito"]; ?></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link efecte" href="contacte.html"><?php echo $frases[$lang]["contacte"]; ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link efecte" href="AfegirProductes.php"><?php echo $frases[$lang]["afegir"]; ?></a>
+                    </li>
+                    
                 </ul>
             </div>
-    
+
         </nav>
     </div>
     <table class="table">
@@ -61,7 +72,7 @@ $conn->close();
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">MODEL</th>
-                <th scope="col">PREU</th>
+                <th scope="col"><?php echo $frases[$lang]["preu"]; ?></th>
             </tr>
         </thead>
         <tbody>

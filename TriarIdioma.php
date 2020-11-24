@@ -1,11 +1,18 @@
 <?php
 $lang = "es";
 
-if (isset($_GET["lang"]) && $_GET["lang"] != "") {
-    if ($_GET["lang"] == "en" || $_GET["lang"] == "es") {
-        $lang = $_GET["lang"];
-    }
+
+session_start();
+ 
+
+if(isset($_POST["lang"])){
+  $lang = $_POST["lang"];
+  if(!empty($lang)){
+    $_SESSION["lang"] = $lang;
+  }
 }
+
+
 
 $frases = array(
     "es" => array(
@@ -15,7 +22,8 @@ $frases = array(
         "afegir" => "Afegir Productes",
         "idioma" => "Idioma",
         "info" => "Mes Informacio",
-        "afegir" => "Afegir"
+        "afegir" => "Afegir",
+        "preu" => "Preu"
     ),
     "en" => array(
         "inici" => "Home",
@@ -24,7 +32,8 @@ $frases = array(
         "afegir" => "Add Product",
         "idioma" => "Language",
         "info" => "More Information",
-        "afegir" => "Add"
+        "afegir" => "Add",
+        "preu" => "Price"
     )
 
 );
