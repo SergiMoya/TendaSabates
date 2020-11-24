@@ -47,6 +47,13 @@ include_once "TriarIdioma.php"
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $frases[$lang]["idioma"]; ?></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="index.php?lang=es">Español</a>
+                            <a class="dropdown-item" href="index.php?lang=en">Angles</a>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link efecte" href="carrito.php"><?php echo $frases[$lang]["carrito"]; ?></a>
                     </li>
@@ -56,13 +63,7 @@ include_once "TriarIdioma.php"
                     <li class="nav-item">
                         <a class="nav-link efecte" href="AfegirProductes.php"><?php echo $frases[$lang]["afegir"]; ?></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $frases[$lang]["idioma"]; ?></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="index.php?lang=es">Español</a>
-                            <a class="dropdown-item" href="index.php?lang=en">Angles</a>
-                        </div>
-                    </li>
+                    
                 </ul>
             </div>
 
