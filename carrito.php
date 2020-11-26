@@ -32,7 +32,7 @@ $conn->close();
 </head>
 
 <body>
-<div class="container-fluid" style="padding: 0;">
+    <div class="container-fluid" style="padding: 0;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 
             <button class="navbar-toggler botores" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@ $conn->close();
                     <li class="nav-item">
                         <a class="nav-link efecte" href="AfegirProductes.php"><?php echo $frases[$lang]["afegir"]; ?></a>
                     </li>
-                    
+
                 </ul>
             </div>
 
@@ -76,23 +76,23 @@ $conn->close();
             </tr>
         </thead>
         <tbody>
-        <?php
-        if (isset($_SESSION['carrito'])) {
-            $arreglo = $_SESSION['carrito'];
-            foreach ($arreglo as $key => $fila) {
+            <?php
+            if (isset($_SESSION['carrito'])) {
+                $arreglo = $_SESSION['carrito'];
+                foreach ($arreglo as $key => $fila) {
 
-        ?>
-                
+            ?>
+
                     <tr>
                         <th scope="row"><?php echo $fila['id']; ?></th>
                         <td><?php echo $fila['model']; ?></td>
                         <td><?php echo $fila['preu']; ?></td>
                     </tr>
             <?php
+                }
             }
-        }
             ?>
-                </tbody>
+        </tbody>
 
     </table>
 </body>
