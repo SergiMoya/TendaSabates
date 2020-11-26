@@ -65,23 +65,23 @@ $conn->close();
             </tr>
         </thead>
         <tbody>
-            <?php
-            if (isset($_SESSION['carrito'])) {
-                $arreglo = $_SESSION['carrito'];
-                foreach ($arreglo as $key => $fila) {
+        <?php
+        if (isset($_SESSION['carrito'])) {
+            $arreglo = $_SESSION['carrito'];
+            foreach ($arreglo as $key => $fila) {
 
-            ?>
-
+        ?>
+                
                     <tr>
                         <th scope="row"><?php echo $fila['id']; ?></th>
                         <td><?php echo $fila['model']; ?></td>
                         <td><?php echo $fila['preu']; ?></td>
                     </tr>
             <?php
-                }
             }
+        }
             ?>
-        </tbody>
+                </tbody>
 
     </table>
 </body>

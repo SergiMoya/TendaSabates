@@ -18,7 +18,31 @@ $conn->close();
 
 ?>
 <?php
-include_once "TriarIdioma.php"
+$lang = "es";
+
+if (isset($_GET["lang"]) && $_GET["lang"] != "") {
+    if ($_GET["lang"] == "en" || $_GET["lang"] == "es") {
+        $lang = $_GET["lang"];
+    }
+}
+
+$frases = array(
+    "es" => array(
+        "inici" => "Inici",
+        "carrito" => "Carreto",
+        "contacte" => "Contacte",
+        "afegir" => "Afegir Productes",
+        "idioma" => "Idioma"
+    ),
+    "en" => array(
+        "inici" => "Home",
+        "carrito" => "Cart",
+        "contacte" => "Contact",
+        "afegir" => "Add Product",
+        "idioma" => "Language"
+    )
+
+);
 ?>
 
 <!DOCTYPE html>
@@ -47,13 +71,6 @@ include_once "TriarIdioma.php"
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $frases[$lang]["idioma"]; ?></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="index.php?lang=es">Español</a>
-                            <a class="dropdown-item" href="index.php?lang=en">Angles</a>
-                        </div>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link efecte" href="carrito.php"><?php echo $frases[$lang]["carrito"]; ?></a>
                     </li>
@@ -63,7 +80,13 @@ include_once "TriarIdioma.php"
                     <li class="nav-item">
                         <a class="nav-link efecte" href="AfegirProductes.php"><?php echo $frases[$lang]["afegir"]; ?></a>
                     </li>
-                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $frases[$lang]["idioma"]; ?></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="index.php?lang=es">Español</a>
+                            <a class="dropdown-item" href="index.php?lang=en">Ingles</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
@@ -84,16 +107,8 @@ include_once "TriarIdioma.php"
             ?>
 
                     <div class="col-sm-4">
-
                         <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo $model?></h5>
-                                <p class="card-text"><?php echo $model?></p>
-                                <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-primary"><?php echo $frases[$lang]["info"]; ?></a>
-                            </div>
-                        </div>
-                        
+                        <?php echo $model . " " . $preu . "€ " . "<br>"  . "<a href='Fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?>
 
                     </div>
 
