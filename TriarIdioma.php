@@ -2,17 +2,6 @@
 $lang = "es";
 
 
-session_start();
- 
-
-if(isset($_POST["lang"])){
-  $lang = $_POST["lang"];
-  if(!empty($lang)){
-    $_SESSION["lang"] = $lang;
-  }
-}
-
-
 
 $frases = array(
     "es" => array(

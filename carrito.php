@@ -32,7 +32,7 @@ $conn->close();
 </head>
 
 <body>
-    <div class="container-fluid" style="padding: 0;">
+<div class="container-fluid" style="padding: 0;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 
             <button class="navbar-toggler botores" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,30 +41,19 @@ $conn->close();
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php"><?php echo $frases[$lang]["inici"]; ?>
+                        <a class="nav-link" href="index.php">Inici
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $frases[$lang]["idioma"]; ?></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="index.php?lang=es">Español</a>
-                            <a class="dropdown-item" href="index.php?lang=en">Angles</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link efecte" href="carrito.php">Carrito</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="carrito.php"><?php echo $frases[$lang]["carrito"]; ?></a>
+                        <a class="nav-link efecte" href="contacte.html">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link efecte" href="contacte.html"><?php echo $frases[$lang]["contacte"]; ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link efecte" href="AfegirProductes.php"><?php echo $frases[$lang]["afegir"]; ?></a>
-                    </li>
-
                 </ul>
             </div>
-
+    
         </nav>
     </div>
     <table class="table">
@@ -72,7 +61,7 @@ $conn->close();
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">MODEL</th>
-                <th scope="col"><?php echo $frases[$lang]["preu"]; ?></th>
+                <th scope="col">PREU</th>
             </tr>
         </thead>
         <tbody>
