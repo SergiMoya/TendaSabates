@@ -1,40 +1,40 @@
 <?php
-        session_start();
-        $servername = "0.0.0.0";
-        $username = "perez";
-        $password = "moya1234";
-        $dbname = "TendaBD";
+session_start();
+$servername = "0.0.0.0";
+$username = "perez";
+$password = "moya1234";
+$dbname = "TendaBD";
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        //make query
-        $sql = "Select id, model, preu from Producte";
-        $result = $conn->query($sql);
-        $conn->close();
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+//make query
+$sql = "Select id, model, preu from Producte";
+$result = $conn->query($sql);
+$conn->close();
+// Set Language variable
+if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
 
+    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+        echo "<script type='text/javascript'> location.reload(); </script>";
+    }
+}
 
-        if (isset($_GET['lang']) && !empty($_GET['lang'])) {
-            $_SESSION['lang'] = $_GET['lang'];
-        
-            if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
-                echo "<script type='text/javascript'> location.reload(); </script>";
-            }
-        }
-        
-        // Include Language file
-        if (isset($SESSION['lang'])) {
-            include "lang" . $_SESSION['lang'] . ".php";
-        } else {
-            include "lang_en.php";
-        }
-    ?>
+// Include Language file
+if (isset($_SESSION['lang'])) {
+    include "lang_" . $_SESSION['lang'] . ".php";
+} else {
+    include "lang_es.php";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,8 +50,9 @@
 
 
 </head>
+
 <body style="background-color: #F5F5F5;">
-<div class="container-fluid" style="padding: 0;">
+    <div class="container-fluid" style="padding: 0;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 
             <button class="navbar-toggler botores" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,45 +88,46 @@
                     </li>
                 </ul>
             </div>
-    
+
         </nav>
     </div>
 
     <div class="container">
-    
+
         <div class="row">
-        
-            <?php 
-                if($result->num_rows > 0){
-                    while($row = $result->fetch_assoc()){
-                        $id = $row["id"];
-                        $model = $row["model"];
-                        $preu = $row["preu"];
-                               
+
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $id = $row["id"];
+                    $model = $row["model"];
+                    $preu = $row["preu"];
+
             ?>
 
-            <div class="col-sm-4">
-            <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
+                    <div class="col-sm-4">
+                        <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $model?></h5>
-                                <p class="card-text"><?php echo $model?></p>
+                                <h5 class="card-title"><?php echo $model ?></h5>
+                                <p class="card-text"><?php echo $model ?></p>
                                 <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-primary"><?= _INFO ?></a>
                             </div>
                         </div>
-            </div>
+                    </div>
 
             <?php
-                    }
-                }else{
-                    echo "0 results";
                 }
+            } else {
+                echo "0 results";
+            }
             ?>
 
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
