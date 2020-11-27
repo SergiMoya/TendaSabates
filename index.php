@@ -105,13 +105,13 @@ if (isset($_SESSION['lang'])) {
 
             ?>
 
-                    <div class="col-sm-4 justify-content-center">
-                        <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
-                        <div class="card" style="width: 18rem;">
+                    <div class="col-sm-4">
+                        <div class="col-sm-6 justify-content-center"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
+                        <div class="card justify-content-center" style="width: 18rem;">
                             <div class="card-body" style="background-color: #F5F5F5;">
-                                <h5 class="card-title" ><?php echo $model ?></h5>
-                                <p class="card-text"><?php echo $model ?></p>
-                                <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-secondary"><?= _INFO ?></a>
+                                <h5 class="card-title justify-content-center" ><?php echo $model ?></h5>
+                                <p class="card-text justify-content-center"><?php echo $preu ?></p>
+                                <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-secondary justify-content-center"><?= _INFO ?></a>
                             </div>
                         </div>
                     </div>
