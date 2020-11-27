@@ -108,10 +108,10 @@ if (isset($_SESSION['lang'])) {
                     <div class="col-sm-4">
                         <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
                         <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php echo $model ?></h5>
+                            <div class="card-body" style="background-color: #F5F5F5;">
+                                <h5 class="card-title" ><?php echo $model ?></h5>
                                 <p class="card-text"><?php echo $model ?></p>
-                                <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-primary"><?= _INFO ?></a>
+                                <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-secondary"><?= _INFO ?></a>
                             </div>
                         </div>
                     </div>
