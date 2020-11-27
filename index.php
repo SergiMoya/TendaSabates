@@ -105,7 +105,7 @@ if (isset($_SESSION['lang'])) {
 
             ?>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 justify-content-center">
                         <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
                         <div class="card" style="width: 18rem;">
                             <div class="card-body" style="background-color: #F5F5F5;">
