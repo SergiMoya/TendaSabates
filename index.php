@@ -1,5 +1,5 @@
 <?php
-        
+        session_start();
         $servername = "0.0.0.0";
         $username = "perez";
         $password = "moya1234";
@@ -16,6 +16,21 @@
         $result = $conn->query($sql);
         $conn->close();
 
+
+        if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+            $_SESSION['lang'] = $_GET['lang'];
+        
+            if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+                echo "<script type='text/javascript'> location.reload(); </script>";
+            }
+        }
+        
+        // Include Language file
+        if (isset($SESSION['lang'])) {
+            include "lang" . $_SESSION['lang'] . ".php";
+        } else {
+            include "lang_en.php";
+        }
     ?>
 
 <!DOCTYPE html>
@@ -25,6 +40,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenda de Sabates</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <script>
+        function changeLang() {
+            document.getElementById('form_lang').submit();
+        }
+    </script>
+
 
 </head>
 <body style="background-color: #F5F5F5;">
@@ -37,26 +60,31 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Inici
+                        <a class="nav-link" href="index.php"><?= _INICI ?>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="carrito.php">Carrito</a>
+                        <a class="nav-link efecte" href="carrito.php"><?= _CARRITO ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="contacte.html">Contacte</a>
+                        <a class="nav-link efecte" href="contacte.html"><?= _CONTACTE ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="AfegirProductes.php">Afegir Producte</a>
+                        <a class="nav-link efecte" href="AfegirProductes.php"><?= _AFEGIR ?></a>
                     </li>
-                    <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Español</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="Pagina-Montanya.html">Italia</a>
-                                <a class="dropdown-item" href="Pagina-Carretera.html">Rus</a>
-                            </div>
-                        </li>
+                    <li class="nav-item">
+                        <form method="get" action="" id="form_lang">
+                            <select name='lang' onchange='changeLang();'>
+                                <option value='en' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+                                                        echo "selected";
+                                                    } ?>>Angles</option>
+                                <option value='es' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') {
+                                                        echo "selected";
+                                                    } ?>>Espanyol</option>
+                            </select>
+                        </form>
+                    </li>
                 </ul>
             </div>
     
@@ -78,8 +106,13 @@
 
             <div class="col-sm-4">
             <div class="col-sm-6"><img src="public/imatges/<?php echo $id; ?>.jpg" alt="" class="img-fluid"></div>
-                <?php echo $model . " " . $preu . "€ "."<br>"  ."<a href='Fitxa.php?id=$id'>Mes informacio</a>" . "<br><br>"; ?>
-            
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $model?></h5>
+                                <p class="card-text"><?php echo $model?></p>
+                                <a href='Fitxa.php?id=<?php echo $id; ?>' class="btn btn-primary"><?= _INFO ?></a>
+                            </div>
+                        </div>
             </div>
 
             <?php
@@ -91,6 +124,8 @@
 
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
