@@ -77,7 +77,7 @@ if (isset($_SESSION['lang'])) {
                     <li class="nav-item">
                         <form method="get" action="" id="form_lang">
                             <select name='lang' onchange='changeLang();'>
-                                <option value='en' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+                                <option value='en' class="form-control select2bs4" <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
                                                         echo "selected";
                                                     } ?>>Angles</option>
                                 <option value='es' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') {
