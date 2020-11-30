@@ -5,7 +5,7 @@ $servername = "0.0.0.0";
 $username = "perez";
 $password = "moya1234";
 $dbname = "TendaBD";
-
+$lang = $_SESSION['lang'];
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
