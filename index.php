@@ -15,6 +15,7 @@ if ($conn->connect_error) {
 $sql = "Select id, model, preu from Producte";
 $result = $conn->query($sql);
 $conn->close();
+
 // Set Language variable
 if (isset($_GET['lang']) && !empty($_GET['lang'])) {
     $_SESSION['lang'] = $_GET['lang'];
@@ -75,8 +76,9 @@ if (isset($_SESSION['lang'])) {
                         <a class="nav-link efecte" href="AfegirProductes.php"><?= _AFEGIR ?></a>
                     </li>
                     <li class="nav-item">
-                        <form method="get" action="" id="form_lang">
+                        <form method="get" action="" id="form_lang" class="dropdown-dark">
                             <select name='lang' onchange='changeLang();'>
+                            <option selected>Tria l'idioma</option>
                                 <option value='en' class="form-control select2bs4" <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
                                                         echo "selected";
                                                     } ?>>Angles</option>
