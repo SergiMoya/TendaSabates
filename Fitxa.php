@@ -28,16 +28,16 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 $id = $_GET['id'];
-    $lang = $_SESSION['lang'];
+$lang = $_SESSION['lang'];
 
-    $sql = "select * from Producte".$lang." WHERE id='$id' LIMIT 1";
-    $result = $mysqli->query($sql);
+$sql = "select * from Producte" . $lang . " WHERE id='$id' LIMIT 1";
+$result = $mysqli->query($sql);
 
-    $row = $result->fetch_assoc();
-    $id = $row["id"];
-    $price = $row["preu"];
-    $description = $row["descripcio"];
-    $type = $row["model"];
+$row = $result->fetch_array();
+$id = $row["id"];
+$price = $row["preu"];
+$description = $row["descripcio"];
+$type = $row["model"];
 
 
 
@@ -56,7 +56,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
 </head>
 
 <body style="background-color: #F5F5F5;">
