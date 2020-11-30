@@ -17,12 +17,15 @@ $result = $conn->query($sql);
 $conn->close();
 
 // Set Language variable
-if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+// Set Language variable
+if (isset($_GET['lang']) ) {
     $_SESSION['lang'] = $_GET['lang'];
 
     if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
         echo "<script type='text/javascript'> location.reload(); </script>";
     }
+}else{
+    $_SESSION['lang'] = "es";
 }
 
 // Include Language file
