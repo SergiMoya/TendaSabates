@@ -5,14 +5,14 @@ $servername = "0.0.0.0";
 $username = "perez";
 $password = "moya1234";
 $dbname = "TendaBD";
-$lang = $_SESSION['lang'];
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+$lang = $_SESSION['lang'];
 $sql = "SELECT * FROM Producte".$lang." where id = '" . $codi . "'";
 $result = $conn->query($sql);
 
@@ -31,7 +31,6 @@ if (isset($_GET['lang']) && !empty($_GET['lang'])) {
         echo "<script type='text/javascript'> location.reload(); </script>";
     }
 }
-
 // Include Language file
 if (isset($_SESSION['lang'])) {
     include "lang_" . $_SESSION['lang'] . ".php";
