@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $codi = $_GET['id'];
 $servername = "0.0.0.0";
 $username = "perez";
