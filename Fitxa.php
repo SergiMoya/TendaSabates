@@ -51,11 +51,7 @@ if (isset($_SESSION['lang'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script>
-        function changeLang() {
-            document.getElementById('form_lang').submit();
-        }
-    </script>
+    
 </head>
 
 <body style="background-color: #F5F5F5;">
@@ -80,19 +76,6 @@ if (isset($_SESSION['lang'])) {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link efecte" href="AfegirProductes.php"><?= _AFEGIR ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <form method="get" action="" id="form_lang" class="dropdown-dark">
-                            <select name='lang' onchange='changeLang();'>
-                                <option value="" disabled selected>Tria l'idioma</option>
-                                <option value='en' class="form-control select2bs4" <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
-                                                                                        echo "selected";
-                                                                                    } ?>>Angles</option>
-                                <option value='es' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') {
-                                                        echo "selected";
-                                                    } ?>>Espanyol</option>
-                            </select>
-                        </form>
                     </li>
                 </ul>
             </div>
