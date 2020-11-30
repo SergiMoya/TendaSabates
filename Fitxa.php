@@ -22,10 +22,10 @@ $password = "moya1234";
 $dbname = "TendaBD";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
 $id = $_GET['id'];
     $lang = $_SESSION['lang'];
