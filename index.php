@@ -34,6 +34,8 @@ if (isset($_SESSION['lang'])) {
 } else {
     include "lang_es.php";
 }
+
+
 ?>
 
 <!DOCTYPE html>

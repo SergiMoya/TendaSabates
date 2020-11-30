@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Producte where id = '" . $codi . "'";
+$sql = "SELECT * FROM Producte".$lang." where id = '" . $codi . "'";
 $result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
@@ -38,6 +38,7 @@ if (isset($_SESSION['lang'])) {
 } else {
     include "lang_es.php";
 }
+
 ?>
 
 
