@@ -27,7 +27,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $lang = $_SESSION['lang'];
-$sql = "SELECT * FROM Producte".$lang." where id = '" . $codi . "'";
+$sql = "select * from Producte".$lang." WHERE id='$codi' LIMIT 1";
 $result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
