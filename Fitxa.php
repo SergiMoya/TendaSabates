@@ -1,19 +1,21 @@
 <?php
 session_start();
-// Set Language variable
-if (isset($_GET['lang']) && !empty($_GET['lang'])) {
-    $_SESSION['lang'] = $_GET['lang'];
+if (isset($_GET['id'])) {
+    // Set Language variable
+    if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+        $_SESSION['lang'] = $_GET['lang'];
 
-    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
-        echo "<script type='text/javascript'> location.reload(); </script>";
+        if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+            echo "<script type='text/javascript'> location.reload(); </script>";
+        }
     }
-}
-// Include Language file
-if (isset($_SESSION['lang'])) {
-    include "lang_" . $_SESSION['lang'] . ".php";
-} else {
-    include "lang_es.php";
-}
+
+    // Include Language file
+    if (isset($SESSION['lang'])) {
+        include "lang" . $_SESSION['lang'] . ".php";
+    } else {
+        include "lang_en.php";
+    }
 $codi = $_GET['id'];
 $servername = "0.0.0.0";
 $username = "perez";
@@ -26,19 +28,23 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$lang = $_SESSION['lang'];
-$sql = "select * from Producte".$lang." WHERE id='$codi' LIMIT 1";
-$result = $conn->query($sql);
+$id = $_GET['id'];
+    $lang = $_SESSION['lang'];
 
-$row = $result->fetch_assoc();
-$id = $row['id'];
-$model = $row['model'];
-$preu = $row['preu'];
-$descripcio = $row['descripcio'];
+    $sql = "select * from Producte".$lang." WHERE id='$id' LIMIT 1";
+    $result = $mysqli->query($sql);
+
+    $row = $result->fetch_assoc();
+    $id = $row["id"];
+    $price = $row["preu"];
+    $description = $row["descripcio"];
+    $type = $row["model"];
+
+
+
+
+
 $conn->close();
-
-
-
 ?>
 
 
