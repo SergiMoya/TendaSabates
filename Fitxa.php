@@ -22,7 +22,24 @@ $model = $row['model'];
 $preu = $row['preu'];
 $descripcio = $row['descripcio'];
 $conn->close();
+
+// Set Language variable
+if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
+
+    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+        echo "<script type='text/javascript'> location.reload(); </script>";
+    }
+}
+
+// Include Language file
+if (isset($_SESSION['lang'])) {
+    include "lang_" . $_SESSION['lang'] . ".php";
+} else {
+    include "lang_es.php";
+}
 ?>
+
 
 
 
@@ -34,6 +51,11 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function changeLang() {
+            document.getElementById('form_lang').submit();
+        }
+    </script>
 </head>
 
 <body style="background-color: #F5F5F5;">
@@ -46,19 +68,35 @@ $conn->close();
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Inici
+                        <a class="nav-link" href="index.php"><?= _INICI ?>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="carrito.php">Carrito</a>
+                        <a class="nav-link efecte" href="carrito.php"><?= _CARRITO ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link efecte" href="contacte.html">Contacto</a>
+                        <a class="nav-link efecte" href="contacte.html"><?= _CONTACTE ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link efecte" href="AfegirProductes.php"><?= _AFEGIR ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="get" action="" id="form_lang" class="dropdown-dark">
+                            <select name='lang' onchange='changeLang();'>
+                                <option value="" disabled selected>Tria l'idioma</option>
+                                <option value='en' class="form-control select2bs4" <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+                                                                                        echo "selected";
+                                                                                    } ?>>Angles</option>
+                                <option value='es' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') {
+                                                        echo "selected";
+                                                    } ?>>Espanyol</option>
+                            </select>
+                        </form>
                     </li>
                 </ul>
             </div>
-    
+
         </nav>
     </div>
     <a href="index.php">Tornar</a>
@@ -77,7 +115,9 @@ $conn->close();
                     <div class="col-sm-11">
                         <h8><?php echo $descripcio; ?></h8>
                     </div>
-                    <div class="col-sm-11"><?php echo "<a href='agregar.php?id=$id'>Añadir al carro</a> " ?></div>
+                    <div class="col-sm-11">
+                        <a href='agregar.php?id=<?php echo $id; ?>' class="btn btn-secondary"><?= _ACARRITO ?></a>
+                    </div>
                 </div>
             </div>
         </div>
