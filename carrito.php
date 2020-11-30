@@ -99,7 +99,7 @@ if (isset($_SESSION['lang'])) {
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">MODEL</th>
-                <th scope="col">PREU</th>
+                <th scope="col"><?= _PREU ?></th>
             </tr>
         </thead>
         <tbody>
