@@ -16,35 +16,28 @@ if (isset($_GET['id'])) {
     } else {
         include "lang_en.php";
     }
+$codi = $_GET['id'];
+$servername = "0.0.0.0";
+$username = "perez";
+$password = "moya1234";
+$dbname = "TendaBD";
 
-    $codi = $_GET['id'];
-    $servername = "0.0.0.0";
-    $username = "perez";
-    $password = "moya1234";
-    $dbname = "TendaBD";
-
-    // Create connection
-    $mysqli = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($mysqli->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $id = $_GET['id'];
-    $lang = $_SESSION['lang'];
-
-    $sql = "select * from Producte" . $lang . " WHERE id='$id' LIMIT 1";
-    $result = $mysqli->query($sql);
-
-    $row = $result->fetch_assoc();
-    $model = $row["model"];
-    $id = $row["id"];
-    $preu = $row["preu"];
-    $descripcio = $row["descripcio"];
-} else {
-    echo "Theres a problem with the query";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-$mysqli->close();
+$sql = "SELECT * FROM Productes where id = '" . $codi . "'";
+$result = $conn->query($sql);
+
+$row = $result->fetch_assoc();
+$id = $row['id'];
+$model = $row['model'];
+$preu = $row['preu'];
+$descripcio = $row['descripcio'];
+$conn->close();
 ?>
 
 
