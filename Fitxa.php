@@ -16,6 +16,7 @@ if (isset($_GET['id'])) {
     } else {
         include "lang_en.php";
     }
+}   
 $codi = $_GET['id'];
 $servername = "0.0.0.0";
 $username = "perez";
