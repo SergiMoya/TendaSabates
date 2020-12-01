@@ -30,10 +30,10 @@ if ($mysqli->connect_error) {
 $id = $_GET['id'];
 $lang = $_SESSION['lang'];
 
-$sql = "select * from Producte" . $lang . " WHERE id='$id' LIMIT 1";
+$sql = "select * from Producte WHERE id='$id' LIMIT 1";
 $result = $mysqli->query($sql);
 
-$row = $result->fetch_array();
+$row = $result->fetch_assoc();
 $id = $row["id"];
 $price = $row["preu"];
 $description = $row["descripcio"];
