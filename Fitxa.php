@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
             echo "<script type='text/javascript'> location.reload(); </script>";
         }
     }
-}
+
 
     // Include Language file
     if (isset($SESSION['lang'])) {
@@ -23,22 +23,26 @@ $username = "perez";
 $password = "moya1234";
 $dbname = "TendaBD";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    // Create connection
+    $mysqli = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $id = $_GET['id'];
+    $lang = $_SESSION['lang'];
+
+    $sql = "select * from Producte".$lang." WHERE id='$id' LIMIT 1";
+    $result = $mysqli->query($sql);
+
+    $row = $result->fetch_assoc();
+    $model = $row["model"];
+    $id = $row["id"];
+    $preu = $row["preu"];
+    $descripcio = $row["descripcio"];
 }
 
-$sql = "SELECT * FROM Productes where id = '" . $codi . "'";
-$result = $conn->query($sql);
-
-$row = $result->fetch_assoc();
-$id = $row['id'];
-$model = $row['model'];
-$preu = $row['preu'];
-$descripcio = $row['descripcio'];
-$conn->close();
+$mysqli->close();
 ?>
 
 
