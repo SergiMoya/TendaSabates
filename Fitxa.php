@@ -1,19 +1,4 @@
 <?php
-session_start();
-// Set Language variable
-if (isset($_GET['lang']) && !empty($_GET['lang'])) {
-    $_SESSION['lang'] = $_GET['lang'];
-
-    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
-        echo "<script type='text/javascript'> location.reload(); </script>";
-    }
-}
-// Include Language file
-if (isset($SESSION['lang'])) {
-    include "lang" . $_SESSION['lang'] . ".php";
-} else {
-    include "lang_es.php";
-}
 
 $codi = $_GET['id'];
 $servername = "0.0.0.0";
@@ -22,33 +7,26 @@ $password = "moya1234";
 $dbname = "TendaBD";
 
 // Create connection
-$mysqli = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-$id = $_GET['id'];
-$lang = $_SESSION['lang'];
 
-$sql = "select * from Producte WHERE id='$id' LIMIT 1";
-$result = $mysqli->query($sql);
+$sql = "SELECT * FROM Producte where id = '" . $codi . "'";
+$result = $conn->query($sql);
 
 $row = $result->fetch_assoc();
-$id = $row["id"];
-$price = $row["preu"];
-$description = $row["descripcio"];
-$type = $row["model"];
-
-
-
-
-
+$id = $row['id'];
+$model = $row['model'];
+$preu = $row['preu'];
+$descripcio = $row['descripcio'];
 $conn->close();
 ?>
 
 
 
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -56,7 +34,6 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 </head>
 
 <body style="background-color: #F5F5F5;">
@@ -104,8 +81,7 @@ $conn->close();
                         <h8><?php echo $descripcio; ?></h8>
                     </div>
                     <div class="col-sm-11">
-                        <a href='agregar.php?id=<?php echo $id; ?>' class="btn btn-secondary"><?= _ACARRITO ?></a>
-                    </div>
+                        <?php echo "<a href='agregar.php?id=$id'>Añadir al carro</a> " ?></div>
                 </div>
             </div>
         </div>
