@@ -9,6 +9,7 @@ if (isset($_GET['id'])) {
             echo "<script type='text/javascript'> location.reload(); </script>";
         }
     }
+}
 
     // Include Language file
     if (isset($SESSION['lang'])) {
